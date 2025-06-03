@@ -45,11 +45,6 @@ export interface UpdateDisbursementRequest {
 
 export interface DisbursementRequestFilters {
   status?: DisbursementStatus;
-  borrowerName?: string;
-  minAmount?: number;
-  maxAmount?: number;
-  fromDate?: string;
-  toDate?: string;
 }
 
 export interface SlackNotificationPayload {
