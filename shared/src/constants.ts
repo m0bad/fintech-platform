@@ -8,12 +8,6 @@ export const API_ENDPOINTS = {
   DISBURSEMENT_REQUEST_BY_ID: (id: string) => `/api/requests/${id}`,
 } as const;
 
-export const PAGINATION = {
-  DEFAULT_PAGE: 1,
-  DEFAULT_LIMIT: 10,
-  MAX_LIMIT: 100,
-} as const;
-
 export const DISBURSEMENT_STATUSES = {
   PENDING: 'Pending',
   APPROVED: 'Approved', 
