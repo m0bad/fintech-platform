@@ -1,3 +1,9 @@
+export type { 
+  CreateDisbursementSchema as CreateDisbursementRequest,
+  UpdateDisbursementSchema as UpdateDisbursementRequest,
+  DisbursementFilterSchema as DisbursementRequestFilters
+} from './validation';
+
 export type DisbursementStatus = "Pending" | "Approved" | "Rejected";
 
 export interface DisbursementRequest {
@@ -13,21 +19,7 @@ export interface ApiResponse<T = any> {
   data?: T;
   error?: string;
   message?: string;
-}
-
-export interface CreateDisbursementRequest {
-  borrowerName: string;
-  loanAmount: number;
-}
-
-export interface UpdateDisbursementRequest {
-  status?: DisbursementStatus;
-  borrowerName?: string;
-  loanAmount?: number;
-}
-
-export interface DisbursementRequestFilters {
-  status?: DisbursementStatus;
+  errors?: Record<string, string[]>;
 }
 
 export interface SlackNotificationPayload {
