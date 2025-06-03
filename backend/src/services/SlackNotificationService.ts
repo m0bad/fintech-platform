@@ -55,6 +55,45 @@ class SlackNotificationService {
   }
 
   /**
+   * Validate Slack configuration and return status information
+   * Can be used to check if Slack is properly configured
+   */
+  public validateConfiguration(): { 
+    isConfigured: boolean; 
+    configuredChannels: string[];
+    slackUrls: Record<string, string | undefined>;
+  } {
+    const slackUrls = {
+      small: process.env.SLACK_WEBHOOK_URL_SMALL,
+      medium: process.env.SLACK_WEBHOOK_URL_MEDIUM,
+      large: process.env.SLACK_WEBHOOK_URL_LARGE,
+    };
+    
+    const configuredChannels = Object.entries(slackUrls)
+      .filter(([_, url]) => url)
+      .map(([tier]) => tier);
+      
+    return {
+      isConfigured: configuredChannels.length > 0,
+      configuredChannels,
+      slackUrls
+    };
+  }
+
+  /**
+   * Log Slack configuration status
+   */
+  public logConfigurationStatus(): void {
+    const { isConfigured, configuredChannels } = this.validateConfiguration();
+    
+    if (isConfigured) {
+      console.log(`💬 Slack notifications enabled for: ${configuredChannels.join(', ')}`);
+    } else {
+      console.log('⚠️  No Slack webhooks configured - notifications disabled');
+    }
+  }
+
+  /**
    * Ensure service is initialized
    */
   private ensureInitialized(): void {
