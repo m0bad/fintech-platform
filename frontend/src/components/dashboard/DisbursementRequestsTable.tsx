@@ -143,7 +143,7 @@ export const DisbursementRequestsTable = ({
                 <TableHead>Loan Amount</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Submitted At</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -187,7 +187,7 @@ export const DisbursementRequestsTable = ({
                 <TableHead>Loan Amount</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Submitted At</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+                <TableHead>Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -218,7 +218,7 @@ export const DisbursementRequestsTable = ({
               <TableHead>Loan Amount</TableHead>
               <TableHead>Status</TableHead>
               <TableHead>Submitted At</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+              <TableHead>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
